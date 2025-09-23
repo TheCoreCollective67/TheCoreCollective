@@ -6,28 +6,52 @@
   <title>About - The Core Collective</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet"> 
   <style>
+    /* Base Styles */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       background: #fdf6fb;
       color: #222;
     }
-    .wrap {
-      max-width: 900px;
-      margin: 28px auto;
-      padding: 18px;
+
+    a {
+      color: #FF6B9C;
+      text-decoration: none;
+      font-weight: 500;
     }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    /* Wrapper */
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Header */
     header {
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
+      justify-content: space-between;
       background: linear-gradient(135deg, #FFB6C1, #AED7FF);
       padding: 16px 24px;
       border-radius: 16px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    header img {
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header img.headshot {
       height: 80px;
       width: 80px;
       border-radius: 50%;
@@ -35,6 +59,7 @@
       border: 3px solid #fff;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
+
     header h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 2rem;
@@ -42,64 +67,89 @@
       color: #fff;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
-    nav a {margin-right:16px;color:#fff;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:8px;transition:0.3s;}
-    nav a:hover {background:rgba(255,255,255,0.3);color:#fff;}
 
-    .wrap {max-width:1000px;margin:0 auto;padding:16px;}
-    
+    nav a {
+      margin-left: 16px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Bio Section */
     .bio {
-      margin-top: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
       background: #fff;
       padding: 24px;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
-    .bio img.headshot {
-      max-width: 180px;
-      border-radius: 50%;
-      border: 3px solid #FFB6C1;
-      object-fit: cover;
-      align-self: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+
     h2 {
       font-family: 'Poppins', sans-serif;
       color: #FF6B9C;
       margin-bottom: 8px;
     }
+
     p {
       line-height: 1.6;
       color: #555;
     }
-    a {
-      color: #FF6B9C;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a:hover {
-      text-decoration: none;
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        align-self: flex-end;
+      }
+
+      .header-left {
+        flex-direction: row;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <img src="images/ella.jpg" alt="Your Headshot" class="headshot">
-      <h1>About The Core Collective</h1>
+      <div class="header-left">
+        <img src="images/ella.jpg" alt="Your Headshot" class="headshot">
+        <h1>About The Core Collective</h1>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+      </nav>
     </header>
-  <nav>
-      <a href="index.html">Home</a>
-    </nav>
+
     <section class="bio">
+      <div>
+        <h2>Welcome!</h2>
+        <p>Hello! I’m Ella, the founder of <strong>The Core Collective</strong>. I created this site to help teens discover the fun, strength-building world of Pilates. Whether you’re using a reformer or just a mat, my goal is to provide safe, engaging exercises for every skill level.</p>
+      </div>
 
-      <h2>Welcome!</h2>
-      <p>Hello! I’m Ella, the founder of <strong>The Core Collective</strong>. I created this site to help teens discover the fun, strength-building world of Pilates. Whether you’re using a reformer or just a mat, my goal is to provide safe, engaging exercises for every skill level.</p>
+      <div>
+        <h2>My Journey</h2>
+        <p>I’ve been practicing Pilates with my mentor Michelle and love sharing it with teens to improve core strength, flexibility, and confidence. This site combines detailed instructions with photos to make learning easy and enjoyable.</p>
+      </div>
 
-      <h2>My Journey</h2>
-      <p>I’ve been practicing Pilates with my mentor Michelle and love sharing it with teens to improve core strength, flexibility, and confidence. This site combines detailed instructions with photos to make learning easy and enjoyable.</p>
-
-      <h2>Connect</h2>
-      <p>If you have questions, feedback, or just want to say hi, you can reach me at <a href="mailto:thecorecollective67@gmail.com">thecorecollective67@gmail.com</a>
+      <div>
+        <h2>Connect</h2>
+        <p>If you have questions, feedback, or just want to say hi, you can reach me at <a href="mailto:thecorecollective67@gmail.com">thecorecollective67@gmail.com</a></p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
