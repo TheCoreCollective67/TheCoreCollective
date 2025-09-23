@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About - The Core Collective</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet" />
   <style>
     /* Base Styles */
     body {
@@ -21,7 +21,7 @@
     }
 
     a:hover {
-      text-decoration: none;
+      text-decoration: underline;
     }
 
     /* Wrapper */
@@ -93,6 +93,24 @@
       gap: 24px;
     }
 
+    /* Two pictures side by side */
+    .image-row {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .side-pic {
+      width: 40%;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-height: 250px;
+    }
+
     h2 {
       font-family: 'Poppins', sans-serif;
       color: #FF6B9C;
@@ -119,6 +137,15 @@
         flex-direction: row;
         align-items: center;
       }
+
+      .image-row {
+        flex-direction: column;
+      }
+
+      .side-pic {
+        width: 100%;
+        max-height: none;
+      }
     }
   </style>
 </head>
@@ -126,7 +153,7 @@
   <div class="wrap">
     <header>
       <div class="header-left">
-        <img src="images/ella.jpg" alt="Your Headshot" class="headshot">
+        <img src="images/ella.jpg" alt="Your Headshot" class="headshot" />
         <h1>About The Core Collective</h1>
       </div>
       <nav>
@@ -137,17 +164,30 @@
     <section class="bio">
       <div>
         <h2>Welcome!</h2>
-        <p>Hello! I’m Ella, the founder of <strong>The Core Collective</strong>. I created this site to help teens discover the fun, strength-building world of Pilates. Whether you’re using a reformer or just a mat, my goal is to provide safe, engaging exercises for every skill level.</p>
+        <p>
+          Hello! I’m Ella, the founder of <strong>The Core Collective</strong>. I created this site to help teens discover the fun, strength-building world of Pilates. Whether you’re using a reformer or just a mat, my goal is to provide safe, engaging exercises for every skill level.
+        </p>
       </div>
 
       <div>
         <h2>My Journey</h2>
-        <p>I’ve been practicing Pilates with my mentor Michelle and love sharing it with teens to improve core strength, flexibility, and confidence. This site combines detailed instructions with photos to make learning easy and enjoyable.</p>
+        <p>
+          I’ve been practicing Pilates with my mentor Michelle and love sharing it with teens to improve core strength, flexibility, and confidence. This site combines detailed instructions with photos to make learning easy and enjoyable.
+        </p>
+
+        <!-- Two images placed here -->
+        <div class="image-row">
+          <img src="images/EllaDoingPilates.jpg" alt="Ella doing Pilates" class="side-pic" />
+          <img src="images/EllaDoingMorePilates.jpg" alt="Ella doing more pilates" class="side-pic" />
+        </div>
       </div>
 
       <div>
         <h2>Connect</h2>
-        <p>If you have questions, feedback, or just want to say hi, you can reach me at <a href="mailto:thecorecollective67@gmail.com">thecorecollective67@gmail.com</a></p>
+        <p>
+          If you have questions, feedback, or just want to say hi, you can reach me at
+          <a href="mailto:thecorecollective67@gmail.com">thecorecollective67@gmail.com</a>
+        </p>
       </div>
     </section>
   </div>
