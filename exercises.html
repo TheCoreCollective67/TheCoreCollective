@@ -6,72 +6,73 @@
   <title>Exercises - The Core Collective</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin:0;
-      font-family:'Inter',sans-serif;
-      background:#fdf6fb;
-      color:#222;
+    :root{ 
+      --pink: #FFB6C1;
+      --blue: #AED7FF;
+      --muted: #6b6b6b;
+      --card-bg: #fff;
+      --radius: 12px;
+      --max-w: 1100px;
     }
-    header {
-      display:flex;
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Inter',sans-serif;background:linear-gradient(180deg,var(--blue),#fdf6fb);color:#222}
+    .wrap{max-width:var(--max-w);margin:28px auto;padding:18px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:linear-gradient(135deg,var(--pink),var(--blue));border-radius:16px;box-shadow:0 6px 18px rgba(0,0,0,0.1);margin-bottom:24px}
+    header img{height:80px;width:80px;border-radius:50%;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+    header h1{font-family:'Poppins',sans-serif;color:#fff;font-size:2rem;margin:0;text-shadow:2px 2px 4px rgba(0,0,0,0.2)}
+    nav a{margin-left:16px;color:#fff;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:8px;transition:0.3s}
+    nav a:hover{background:rgba(255,255,255,0.3);color:#fff}
+    h2{font-family:'Poppins',sans-serif;color:var(--pink);text-align:center;margin-bottom:20px}
+
+    .filters{text-align:center;margin-bottom:20px}
+    .filters button{margin:6px;padding:8px 14px;border:none;border-radius:8px;background:var(--pink);color:#fff;font-weight:600;cursor:pointer;transition:0.3s}
+    .filters button:hover{background:#FF6B9C}
+    .filters button.active{background:var(--blue);color:#222}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;width:100%}
+    .card{background:var(--card-bg);border-radius:var(--radius);overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.1);transition:0.3s;display:flex;flex-direction:column;gap:8px;cursor:pointer}
+    .card:hover{transform:translateY(-4px)}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+    .card div{padding:12px}
+    .card div h3{margin:0 0 6px 0;font-size:1.1rem;color:var(--pink);font-family:'Poppins',sans-serif}
+    .card div p{margin:0;font-size:0.9rem;color:#555}
+
+    footer{margin-top:28px;color:var(--muted);font-size:0.9rem;text-align:center}
+
+    /* Modal styles */
+    .modal {
+      display:none;
+      position:fixed;
+      z-index:1000;
+      left:0;top:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.6);
+      justify-content:center;
       align-items:center;
-      justify-content:space-between;
-      padding:16px 24px;
-      background:linear-gradient(135deg,#FFB6C1,#AED7FF);
-      border-radius:16px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.1);
-      margin-bottom:24px;
     }
-    header img {height:50px;width:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);}
-    header h1 {font-family:'Poppins',sans-serif;color:#fff;font-size:1.8rem;margin:0;text-shadow:2px 2px 4px rgba(0,0,0,0.2);}
-    nav a {margin-left:16px;color:#fff;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:8px;transition:0.3s;}
-    nav a:hover {background:rgba(255,255,255,0.3);color:#fff;}
-
-    .wrap {max-width:1000px;margin:0 auto;padding:16px;}
-
-    h2 {font-family:'Poppins',sans-serif;color:#FF6B9C;margin-bottom:16px;text-align:center;}
-
-    .filters {text-align:center;margin-bottom:24px;}
-    .filters button {
-      padding:8px 16px;
-      margin:4px;
-      border:none;
-      border-radius:8px;
-      background:#FFB6C1;
-      color:#fff;
-      font-weight:600;
-      cursor:pointer;
-      transition:0.3s;
-    }
-    .filters button:hover {background:#FF6B9C;}
-
-    .posts {
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-      gap:16px;
-    }
-    .post-card {
+    .modal-content {
       background:#fff;
       border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 6px 18px rgba(0,0,0,0.1);
-      transition:0.3s;
+      padding:20px;
+      max-width:400px;
+      width:90%;
+      text-align:center;
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+      position:relative;
+      animation:fadeIn 0.3s ease;
     }
-    .post-card:hover {transform:translateY(-4px);}
-    .post-card img {
-      width:100%;
-      height:140px;
-      object-fit:cover;
+    .modal-content img{width:100%;border-radius:8px;margin-bottom:12px}
+    .modal-close {
+      position:absolute;top:10px;right:14px;
+      font-size:1.2rem;cursor:pointer;color:#888;
     }
-    .post-card div {
-      padding:12px;
+    .modal-close:hover {color:#000}
+    @keyframes fadeIn {
+      from {opacity:0;transform:scale(0.9)}
+      to {opacity:1;transform:scale(1)}
     }
-    .post-card div h3 {margin:0 0 6px 0;font-size:1.1rem;color:#FF6B9C;font-family:'Poppins',sans-serif;}
-    .post-card div p {margin:0;font-size:0.9rem;color:#555;}
   </style>
 </head>
 <body>
-
   <header>
     <div style="display:flex;align-items:center;gap:12px">
       <img src="images/logo.jpg" alt="Logo">
@@ -85,51 +86,111 @@
   </header>
 
   <div class="wrap">
-    <h2>All Exercises</h2>
+    <h2>Browse Our Pilates Exercises</h2>
 
+    <!-- Filters -->
     <div class="filters">
-      <button onclick="filterPosts('all')">All</button>
-      <button onclick="filterPosts('mat')">Mat</button>
-      <button onclick="filterPosts('reformer')">Reformer</button>
-      <button onclick="filterPosts('easy')">Easy</button>
-      <button onclick="filterPosts('medium')">Medium</button>
-      <button onclick="filterPosts('hard')">Hard</button>
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="mat">Mat</button>
+      <button data-filter="reformer">Reformer</button>
+      <button data-filter="easy">Easy</button>
+      <button data-filter="medium">Medium</button>
+      <button data-filter="hard">Hard</button>
     </div>
 
-    <div class="posts">
-      <!-- Example post card -->
-      <div class="post-card" data-equipment="reformer" data-difficulty="easy">
-        <img src="images/reformer1.jpg" alt="Reformer exercise">
-        <div>
-          <h3>Beginner Reformer Footwork</h3>
-          <p>Equipment: Reformer | Difficulty: Easy</p>
-        </div>
+    <!-- Cards -->
+    <div class="cards">
+      <!-- Existing 4 -->
+      <div class="card mat easy" data-title="Beginner Reformer Footwork" data-desc="Press through your feet to straighten and bend your legs on the reformer, keeping your core engaged and spine neutral." data-img="images/reformer1.jpg">
+        <img src="images/reformer1.jpg" alt="">
+        <div><h3>Beginner Reformer Footwork</h3><p>Easy • Reformer</p></div>
+      </div>
+      <div class="card mat medium" data-title="Mat Hundred" data-desc="Lie on your back and pump your arms while engaging your core, lifting your head and shoulders slightly off the mat." data-img="images/mat1.jpg">
+        <img src="images/mat1.jpg" alt="">
+        <div><h3>Mat Hundred</h3><p>Medium • Mat</p></div>
+      </div>
+      <div class="card reformer hard" data-title="Reformer Short Box Twist" data-desc="Sit on the short box, engage your core, and twist your torso side to side while keeping your hips stable." data-img="images/reformer2.jpg">
+        <img src="images/reformer2.jpg" alt="">
+        <div><h3>Reformer Short Box Twist</h3><p>Hard • Reformer</p></div>
+      </div>
+      <div class="card mat medium" data-title="Mat Plank Series" data-desc="Hold a strong plank on your hands or forearms, keeping your core tight and moving through controlled variations." data-img="images/mat2.jpg">
+        <img src="images/mat2.jpg" alt="">
+        <div><h3>Mat Plank Series</h3><p>Medium • Mat</p></div>
       </div>
 
-      <div class="post-card" data-equipment="mat" data-difficulty="medium">
-        <img src="images/mat1.jpg" alt="Mat exercise">
-        <div>
-          <h3>Mat Hundred Prep</h3>
-          <p>Equipment: Mat | Difficulty: Medium</p>
-        </div>
+      <!-- 4 New -->
+      <div class="card mat easy" data-title="Mat Bridge" data-desc="Lie on your back, lift your hips into a bridge while squeezing your glutes and keeping your core engaged." data-img="images/mat3.jpg">
+        <img src="images/mat3.jpg" alt="">
+        <div><h3>Mat Bridge</h3><p>Easy • Mat</p></div>
       </div>
+      <div class="card reformer medium" data-title="Reformer Long Stretch" data-desc="Perform a moving plank on the reformer carriage, keeping your body in one line as you push and pull." data-img="images/reformer3.jpg">
+        <img src="images/reformer3.jpg" alt="">
+        <div><h3>Reformer Long Stretch</h3><p>Medium • Reformer</p></div>
+      </div>
+      <div class="card mat hard" data-title="Mat Teaser" data-desc="Balance on your sit bones with legs lifted, extending arms parallel to your legs while engaging your deep core." data-img="images/mat4.jpg">
+        <img src="images/mat4.jpg" alt="">
+        <div><h3>Mat Teaser</h3><p>Hard • Mat</p></div>
+      </div>
+      <div class="card reformer easy" data-title="Reformer Arm Circles" data-desc="Lying on the reformer, use straps to circle arms in controlled motions, building shoulder strength and control." data-img="images/reformer4.jpg">
+        <img src="images/reformer4.jpg" alt="">
+        <div><h3>Reformer Arm Circles</h3><p>Easy • Reformer</p></div>
+      </div>
+    </div>
 
-      <!-- Add more posts below as needed -->
+    <footer>
+      &copy; <span id="year"></span> The Core Collective • Photos & content by Ella & Michelle
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
     </div>
   </div>
 
   <script>
-    function filterPosts(filter) {
-      const posts = document.querySelectorAll('.post-card');
-      posts.forEach(post => {
-        if(filter === 'all' || post.dataset.equipment === filter || post.dataset.difficulty === filter) {
-          post.style.display = 'block';
-        } else {
-          post.style.display = 'none';
-        }
-      });
-    }
-  </script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
+    const cards = document.querySelectorAll('.card');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalClose = document.querySelector('.modal-close');
+    const filterBtns = document.querySelectorAll('.filters button');
+
+    // Modal behavior
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        modalImg.src = card.dataset.img;
+        modalTitle.textContent = card.dataset.title;
+        modalDesc.textContent = card.dataset.desc;
+        modal.style.display = 'flex';
+      });
+    });
+
+    modalClose.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none' });
+
+    // Filtering
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          if(filter === "all" || card.classList.contains(filter)){
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
