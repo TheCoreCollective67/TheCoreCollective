@@ -11,7 +11,7 @@
       --blue: #AED7FF;
       --muted: #6b6b6b;
       --card-bg: #fff;
-      --radius: 12px; 
+      --radius: 12px;
       --max-w: 1100px;
     }
     *{box-sizing:border-box}
@@ -24,8 +24,10 @@
     nav a:hover{background:rgba(255,255,255,0.3);color:#fff}
     h2{font-family:'Poppins',sans-serif;color:var(--pink);text-align:center;margin-bottom:20px}
 
-    .filters{text-align:center;margin-bottom:20px}
-    .filters button{margin:6px;padding:8px 14px;border:none;border-radius:8px;background:var(--pink);color:#fff;font-weight:600;cursor:pointer;transition:0.3s}
+    .hero{display:flex;flex-direction:column;align-items:center;background:var(--card-bg);border-radius:16px;padding:24px;box-shadow:0 8px 20px rgba(0,0,0,0.1);gap:24px;text-align:center}
+
+    .filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    .filters button{padding:8px 16px;border:none;border-radius:8px;background:var(--pink);color:#fff;font-weight:600;cursor:pointer;transition:0.3s}
     .filters button:hover{background:#FF6B9C}
     .filters button.active{background:var(--blue);color:#222}
 
@@ -88,54 +90,56 @@
   <div class="wrap">
     <h2>Browse Our Pilates Exercises</h2>
 
-    <!-- Filters -->
-    <div class="filters">
-      <button class="active" data-filter="all">All</button>
-      <button data-filter="mat">Mat</button>
-      <button data-filter="reformer">Reformer</button>
-      <button data-filter="easy">Easy</button>
-      <button data-filter="medium">Medium</button>
-      <button data-filter="hard">Hard</button>
-    </div>
-
-    <!-- Cards -->
-    <div class="cards">
-      <!-- Existing 4 -->
-      <div class="card mat easy" data-title="Beginner Reformer Footwork" data-desc="Press through your feet to straighten and bend your legs on the reformer, keeping your core engaged and spine neutral." data-img="images/reformer1.jpg">
-        <img src="images/reformer1.jpg" alt="">
-        <div><h3>Beginner Reformer Footwork</h3><p>Easy • Reformer</p></div>
-      </div>
-      <div class="card mat medium" data-title="Mat Hundred" data-desc="Lie on your back and pump your arms while engaging your core, lifting your head and shoulders slightly off the mat." data-img="images/mat1.jpg">
-        <img src="images/mat1.jpg" alt="">
-        <div><h3>Mat Hundred</h3><p>Medium • Mat</p></div>
-      </div>
-      <div class="card reformer hard" data-title="Reformer Short Box Twist" data-desc="Sit on the short box, engage your core, and twist your torso side to side while keeping your hips stable." data-img="images/reformer2.jpg">
-        <img src="images/reformer2.jpg" alt="">
-        <div><h3>Reformer Short Box Twist</h3><p>Hard • Reformer</p></div>
-      </div>
-      <div class="card mat medium" data-title="Mat Plank Series" data-desc="Hold a strong plank on your hands or forearms, keeping your core tight and moving through controlled variations." data-img="images/mat2.jpg">
-        <img src="images/mat2.jpg" alt="">
-        <div><h3>Mat Plank Series</h3><p>Medium • Mat</p></div>
+    <section class="hero">
+      <!-- Filters -->
+      <div class="filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="mat">Mat</button>
+        <button data-filter="reformer">Reformer</button>
+        <button data-filter="easy">Easy</button>
+        <button data-filter="medium">Medium</button>
+        <button data-filter="hard">Hard</button>
       </div>
 
-      <!-- 4 New -->
-      <div class="card mat easy" data-title="Mat Bridge" data-desc="Lie on your back, lift your hips into a bridge while squeezing your glutes and keeping your core engaged." data-img="images/mat3.jpg">
-        <img src="images/mat3.jpg" alt="">
-        <div><h3>Mat Bridge</h3><p>Easy • Mat</p></div>
+      <!-- Cards -->
+      <div class="cards">
+        <!-- Existing 4 -->
+        <div class="card reformer easy" data-title="Beginner Reformer Footwork" data-desc="Press through your feet to straighten and bend your legs on the reformer, keeping your core engaged and spine neutral." data-img="images/reformer1.jpg">
+          <img src="images/reformer1.jpg" alt="">
+          <div><h3>Beginner Reformer Footwork</h3><p>Easy • Reformer</p></div>
+        </div>
+        <div class="card mat medium" data-title="Mat Hundred" data-desc="Lie on your back and pump your arms while engaging your core, lifting your head and shoulders slightly off the mat." data-img="images/mat1.jpg">
+          <img src="images/mat1.jpg" alt="">
+          <div><h3>Mat Hundred</h3><p>Medium • Mat</p></div>
+        </div>
+        <div class="card reformer hard" data-title="Reformer Short Box Twist" data-desc="Sit on the short box, engage your core, and twist your torso side to side while keeping your hips stable." data-img="images/reformer2.jpg">
+          <img src="images/reformer2.jpg" alt="">
+          <div><h3>Reformer Short Box Twist</h3><p>Hard • Reformer</p></div>
+        </div>
+        <div class="card mat medium" data-title="Mat Plank Series" data-desc="Hold a strong plank on your hands or forearms, keeping your core tight and moving through controlled variations." data-img="images/mat2.jpg">
+          <img src="images/mat2.jpg" alt="">
+          <div><h3>Mat Plank Series</h3><p>Medium • Mat</p></div>
+        </div>
+
+        <!-- 4 New -->
+        <div class="card mat easy" data-title="Mat Bridge" data-desc="Lie on your back, lift your hips into a bridge while squeezing your glutes and keeping your core engaged." data-img="images/mat3.jpg">
+          <img src="images/mat3.jpg" alt="">
+          <div><h3>Mat Bridge</h3><p>Easy • Mat</p></div>
+        </div>
+        <div class="card reformer medium" data-title="Reformer Long Stretch" data-desc="Perform a moving plank on the reformer carriage, keeping your body in one line as you push and pull." data-img="images/reformer3.jpg">
+          <img src="images/reformer3.jpg" alt="">
+          <div><h3>Reformer Long Stretch</h3><p>Medium • Reformer</p></div>
+        </div>
+        <div class="card mat hard" data-title="Mat Teaser" data-desc="Balance on your sit bones with legs lifted, extending arms parallel to your legs while engaging your deep core." data-img="images/mat4.jpg">
+          <img src="images/mat4.jpg" alt="">
+          <div><h3>Mat Teaser</h3><p>Hard • Mat</p></div>
+        </div>
+        <div class="card reformer easy" data-title="Reformer Arm Circles" data-desc="Lying on the reformer, use straps to circle arms in controlled motions, building shoulder strength and control." data-img="images/reformer4.jpg">
+          <img src="images/reformer4.jpg" alt="">
+          <div><h3>Reformer Arm Circles</h3><p>Easy • Reformer</p></div>
+        </div>
       </div>
-      <div class="card reformer medium" data-title="Reformer Long Stretch" data-desc="Perform a moving plank on the reformer carriage, keeping your body in one line as you push and pull." data-img="images/reformer3.jpg">
-        <img src="images/reformer3.jpg" alt="">
-        <div><h3>Reformer Long Stretch</h3><p>Medium • Reformer</p></div>
-      </div>
-      <div class="card mat hard" data-title="Mat Teaser" data-desc="Balance on your sit bones with legs lifted, extending arms parallel to your legs while engaging your deep core." data-img="images/mat4.jpg">
-        <img src="images/mat4.jpg" alt="">
-        <div><h3>Mat Teaser</h3><p>Hard • Mat</p></div>
-      </div>
-      <div class="card reformer easy" data-title="Reformer Arm Circles" data-desc="Lying on the reformer, use straps to circle arms in controlled motions, building shoulder strength and control." data-img="images/reformer4.jpg">
-        <img src="images/reformer4.jpg" alt="">
-        <div><h3>Reformer Arm Circles</h3><p>Easy • Reformer</p></div>
-      </div>
-    </div>
+    </section>
 
     <footer>
       &copy; <span id="year"></span> The Core Collective • Photos & content by Ella & Michelle
@@ -159,38 +163,4 @@
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modal-img');
     const modalTitle = document.getElementById('modal-title');
-    const modalDesc = document.getElementById('modal-desc');
-    const modalClose = document.querySelector('.modal-close');
-    const filterBtns = document.querySelectorAll('.filters button');
-
-    // Modal behavior
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        modalImg.src = card.dataset.img;
-        modalTitle.textContent = card.dataset.title;
-        modalDesc.textContent = card.dataset.desc;
-        modal.style.display = 'flex';
-      });
-    });
-
-    modalClose.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none' });
-
-    // Filtering
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        cards.forEach(card => {
-          if(filter === "all" || card.classList.contains(filter)){
-            card.style.display = "flex";
-          } else {
-            card.style.display = "none";
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+    const modalDesc = document.ge
